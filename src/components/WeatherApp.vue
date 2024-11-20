@@ -6,7 +6,7 @@
         max-width="600"
         :class="{ 'warm-bg': state_weather ,'default':!state_weather}"
       >
-        <v-text-field
+        <!-- <v-text-field
           label="Search city"
           v-model="data.city"
           placeholder="Search..."
@@ -14,7 +14,16 @@
           dense
           outlined
           @keyup.enter="getApi"
-        ></v-text-field>
+        ></v-text-field> -->
+        <v-select
+          v-model="data.city"
+          :items="tamilnaduCities"
+          label="Select a city"
+          solo
+          dense
+          @keyup.enter="getApi"
+          @change="getApi"
+        ></v-select>
 
         <v-divider v-if="data.weather" class="my-4"></v-divider>
 
@@ -54,6 +63,25 @@ export default {
   name: "WeatherApp",
   data() {
     return {
+        tamilnaduCities: [
+        "Chennai",
+        "Coimbatore",
+        "Madurai",
+        "Tiruchirappalli",
+        "Salem",
+        "Erode",
+        "Tirunelveli",
+        "Vellore",
+        "Thoothukudi",
+        "Dindigul",
+        "Thanjavur",
+        "Nagercoil",
+        "Cuddalore",
+        "Kanchipuram",
+        "Kumbakonam",
+        "Tiruppur",
+        "Karur",
+      ],
       data: {
         city: "",
         weather: null,
