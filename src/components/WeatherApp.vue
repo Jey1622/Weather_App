@@ -6,15 +6,6 @@
         max-width="600"
         :class="{ 'warm-bg': state_weather ,'default':!state_weather}"
       >
-        <!-- <v-text-field
-          label="Search city"
-          v-model="data.city"
-          placeholder="Search..."
-          solo
-          dense
-          outlined
-          @keyup.enter="getApi"
-        ></v-text-field> -->
         <v-select
           v-model="data.city"
           :items="tamilnaduCities"
